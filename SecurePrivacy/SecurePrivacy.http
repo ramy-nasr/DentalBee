@@ -1,0 +1,6 @@
+@SecurePrivacy_HostAddress = http://localhost:5087
+
+GET {{SecurePrivacy_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

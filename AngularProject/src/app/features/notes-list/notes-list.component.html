@@ -1,0 +1,23 @@
+<div class="notes-list-container">
+    <h2>Notes List</h2>
+  
+    <app-notes
+      [note]="editingNote"
+      (save)="handleSave($event)"
+    ></app-notes>
+  
+    <hr />
+  
+    <div *ngIf="notes.length === 0">No notes available.</div>
+    <div *ngFor="let note of notes" class="note">
+      <h3>{{ note.title }}</h3>
+      <p>{{ note.description }}</p>
+      <button (click)="handleEdit(note)">Edit</button>
+      <button (click)="handleDelete(note.id)">Delete</button>
+
+      <div *ngIf="note.recordName">
+        <button (click)="playAudio(note.recordName)">Play Audio</button>
+      </div>
+      <hr>
+    </div>
+  </div>

@@ -1,0 +1,27 @@
+<div class="notes-form-container">
+    <form [formGroup]="notesForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="title">Title:</label>
+        <input id="title" formControlName="title" type="text" required />
+        <div *ngIf="notesForm.get('title')?.invalid && notesForm.get('title')?.touched" class="error">
+          Title is required.
+        </div>
+      </div>
+  
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description" rows="4" required></textarea>
+        <div *ngIf="notesForm.get('description')?.invalid && notesForm.get('description')?.touched" class="error">
+          Description is required.
+        </div>
+      </div>
+
+      <div>
+        <button type="button" (click)="startRecording()" [disabled]="isRecording">Start Recording</button>
+        <button type="button" (click)="stopRecording()" [disabled]="!isRecording">Stop Recording</button>
+        <button type="button" (click)="clearRecord()" [disabled]="!isRecording">Clear Record</button>
+      </div>
+  
+      <button type="submit" [disabled]="isRecording">{{ note ? 'Update Note' : 'Add Note' }}</button>
+    </form>
+  </div>
