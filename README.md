@@ -13,6 +13,9 @@ dotnet ef migrations add InitialCreate<br>
 dotnet ef database update<br>
 dotnet run<br>
 
+Navigate to angular project and open trminal and type<br>
+ng serve
+
 
 
 
